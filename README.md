@@ -20,3 +20,6 @@ Modern, professional, and clean website for Cantrell's Auto Detailing.
 - **Email:** captnhuk.gc@gmail.com
 - **Hours:** Mon - Fri, 7:00 am - 5:00 pm; Sat - Sun Closed
 - **Products Used:** Meguiar's, 3M, F11 Topcoat, Sealtek
+
+---
+*Updated Feb 16, 2026*
