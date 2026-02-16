@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Services | Cantrell Auto Detailing">
+	<main>
+		<!-- Navigation (Simplified for now, should eventually be a component) -->
+		<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+			<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+				<a href="/cantrell-auto-detailing/" class="flex items-center overflow-hidden">
+					<img src="/cantrell-auto-detailing/images/logo.png" alt="Cantrell Auto Detailing Logo" class="h-24 w-auto scale-150 object-center" />
+				</a>
+				<div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">
+					<a href="/cantrell-auto-detailing/" class="hover:text-blue-600 transition-colors">Home</a>
+					<a href="/cantrell-auto-detailing/#contact" class="px-5 py-2.5 bg-zinc-950 text-white hover:bg-blue-600 transition-all">Book Now</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Page Header -->
+		<header class="bg-zinc-950 py-20 border-b border-zinc-900">
+			<div class="max-w-7xl mx-auto px-6 text-center">
+				<h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Our Services</h1>
+				<p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+					Over 17 years of professional experience bringing showroom-quality results to every vehicle we touch.
+				</p>
+			</div>
+		</header>
+
+		<!-- Interior Detailing -->
+		<section class="py-24 bg-white">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+					<div class="relative group">
+						<div class="absolute -inset-4 bg-blue-500/5 scale-95 group-hover:scale-100 transition-transform duration-500"></div>
+						<img src="/cantrell-auto-detailing/images/Resized_20260214_105756.jpeg" alt="Interior Detailing Result" class="relative w-full aspect-[4/3] object-cover shadow-2xl" />
+					</div>
+					<div>
+						<span class="text-blue-600 font-bold tracking-widest uppercase text-xs mb-4 block">Precision Interior</span>
+						<h2 class="text-4xl font-extrabold text-zinc-950 mb-6 italic">Top-Notch Interior Detailing</h2>
+						<p class="text-zinc-600 text-lg mb-8 leading-relaxed">
+							Regular cleaning of your car's interior helps slow down depreciation and makes for more comfortable driving. If you want to bring back that "like new" appeal, our highly trained team offers thorough and safe cleaning that ensures complete rejuvenation.
+						</p>
+						<div class="bg-zinc-50 p-8 border-l-4 border-blue-600">
+							<h3 class="font-bold text-zinc-950 mb-4 uppercase tracking-tight">Top-to-Bottom Cleaning Includes:</h3>
+							<ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 text-sm text-zinc-600">
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-blue-600"></span> Leather seat cleaning
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-blue-600"></span> Floor mat cleaning
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-blue-600"></span> Gentle chemical treatment
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-blue-600"></span> Shampooing carpets & trunk
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-blue-600"></span> Console & door panel detail
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-blue-600"></span> Ashtray & visor cleaning
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Exterior Detailing -->
+		<section class="py-24 bg-zinc-50">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+					<div class="order-2 lg:order-1">
+						<span class="text-blue-600 font-bold tracking-widest uppercase text-xs mb-4 block">Complete Exterior</span>
+						<h2 class="text-4xl font-extrabold text-zinc-950 mb-6 italic">Professional Exterior Detailing</h2>
+						<p class="text-zinc-600 text-lg mb-8 leading-relaxed">
+							Trust the professionals to make your vehicle showroom-ready. In business since 2001, we are the area's trusted choice for exterior detailing. Our years of experience ensure your car will look like it just rolled off the assembly line.
+						</p>
+						<div class="bg-white p-8 shadow-sm border-l-4 border-zinc-950">
+							<h3 class="font-bold text-zinc-950 mb-4 uppercase tracking-tight">Exterior Transformation Services:</h3>
+							<ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 text-sm text-zinc-600">
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Acid rain removal
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Clay bar treatment
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Headlight restoration
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Polymer coating
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Wheel & Rim polishing
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Vehicle buffing & Waxing
+								</li>
+								<li class="flex items-center gap-2">
+									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Full detailing & Degreasing
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="order-1 lg:order-2 relative group">
+						<div class="absolute -inset-4 bg-zinc-950/5 scale-95 group-hover:scale-100 transition-transform duration-500"></div>
+						<img src="/cantrell-auto-detailing/images/Messenger_creation_DA93C059-3BB5-4110-89EF-94C685DA65E8.jpeg" alt="Exterior Detailing Result" class="relative w-full aspect-[4/3] object-cover shadow-2xl" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Call to Action -->
+		<section class="py-24 bg-blue-600">
+			<div class="max-w-4xl mx-auto px-6 text-center">
+				<h2 class="text-3xl md:text-5xl font-extrabold text-white mb-8">Ready to Restore Your Ride?</h2>
+				<p class="text-blue-100 text-lg mb-10">
+					Call us today for a free estimate and experience the difference of 17+ years of expertise.
+				</p>
+				<a href="tel:864-414-4888" class="inline-block px-10 py-5 bg-zinc-950 text-white font-extrabold text-xl hover:bg-white hover:text-blue-600 transition-all shadow-2xl">
+					Call 864-414-4888
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="bg-zinc-950 py-12 border-t border-zinc-900">
+		<div class="max-w-7xl mx-auto px-6 text-center">
+			<p class="text-zinc-500 text-sm">© 2026 Cantrell Auto Detailing. All Rights Reserved.</p>
+		</div>
+	</footer>
+</Layout>
