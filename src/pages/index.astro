@@ -38,7 +38,7 @@ const featuredReviews = reviews.slice(0, 5);
 		</section>
 
 		<!-- Testimonial Scroller -->
-		<section class="reveal bg-blue-600 py-20 overflow-hidden border-y border-blue-500/30 opacity-0 transition-all duration-1000 translate-y-8 mt-0 relative z-10">
+		<section class="reveal bg-blue-600 py-20 overflow-hidden border-y border-blue-500/30 opacity-0 transition-all duration-1000 translate-y-0 mt-0 relative z-10">
 			<div class="flex whitespace-nowrap animate-scroll hover:[animation-play-state:paused]">
 				{[...Array(2)].map(() => (
 					<div class="flex gap-24 items-center px-12">
@@ -68,7 +68,7 @@ const featuredReviews = reviews.slice(0, 5);
 		</section>
 
 		<!-- Info Bar -->
-		<section class="reveal py-12 bg-white border-b border-zinc-200 opacity-0 transition-all duration-1000 translate-y-8">
+		<section class="reveal py-12 bg-white border-b border-zinc-200 opacity-0 transition-all duration-1000 translate-y-0">
 			<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
 				<div class="flex flex-col items-center text-center">
 					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-4">
@@ -102,7 +102,7 @@ const featuredReviews = reviews.slice(0, 5);
 		</section>
 
 		<!-- Brands Section -->
-		<section class="reveal py-16 bg-zinc-50 opacity-0 transition-all duration-1000 translate-y-8">
+		<section class="reveal py-16 bg-zinc-50 opacity-0 transition-all duration-1000 translate-y-0">
 			<div class="max-w-7xl mx-auto px-6">
 				<p class="text-center text-xs font-bold text-zinc-400 uppercase tracking-widest mb-10">We Use Professional Grade Products</p>
 				<div class="flex flex-wrap items-center justify-center gap-12 grayscale opacity-50">
@@ -191,6 +191,10 @@ const featuredReviews = reviews.slice(0, 5);
 	.reveal.active {
 		opacity: 1 !important;
 		transform: translateY(0) !important;
+	}
+
+	.reveal:not(.active) {
+		pointer-events: none;
 	}
 
 	/* Typewriter cursor effect */
