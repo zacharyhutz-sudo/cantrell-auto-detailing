@@ -20,7 +20,7 @@ const services = [
 				<span class="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Reservation</span>
 				<h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter text-zinc-950 mb-6">Request a <span class="text-blue-600 italic">Quote.</span></h1>
 				<p class="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto italic font-medium">
-					Elevate your vehicle's condition. Complete the form below and we will provide a personalized estimate within 24 hours.
+					Elevate your vehicle's condition. Complete the form below and we will provide a personalized estimate.
 				</p>
 			</div>
 
@@ -32,7 +32,7 @@ const services = [
 				
 				<div class="grid md:grid-cols-2 gap-10 mb-16">
 					<div class="flex flex-col gap-3">
-						<label for="name" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Full Name</label>
+						<label for="name" class="text-xs font-black uppercase tracking-[0.2em] text-zinc-950 ml-1">Full Name</label>
 						<input 
 							type="text" 
 							id="name" 
@@ -43,7 +43,7 @@ const services = [
 						/>
 					</div>
 					<div class="flex flex-col gap-3">
-						<label for="phone" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Phone Number</label>
+						<label for="phone" class="text-xs font-black uppercase tracking-[0.2em] text-zinc-950 ml-1">Phone Number</label>
 						<input 
 							type="tel" 
 							id="phone" 
@@ -54,7 +54,7 @@ const services = [
 						/>
 					</div>
 					<div class="flex flex-col gap-3 md:col-span-2">
-						<label for="email" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Email Address</label>
+						<label for="email" class="text-xs font-black uppercase tracking-[0.2em] text-zinc-950 ml-1">Email Address</label>
 						<input 
 							type="email" 
 							id="email" 
@@ -67,7 +67,7 @@ const services = [
 				</div>
 
 				<div class="mb-16">
-					<label class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 block mb-8 ml-1">Desired Services</label>
+					<label class="text-xs font-black uppercase tracking-[0.2em] text-zinc-950 block mb-8 ml-1">Desired Services</label>
 					<div class="grid md:grid-cols-2 gap-6">
 						{services.map((service) => (
 							<label class="group relative flex flex-col p-8 bg-zinc-50 border border-zinc-200 rounded-[2rem] cursor-pointer hover:border-blue-600 hover:bg-blue-50 transition-all duration-500">
@@ -88,7 +88,7 @@ const services = [
 				</div>
 
 				<div class="flex flex-col gap-3 mb-16">
-					<label for="note" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Additional Details (Make/Model, Condition, etc.)</label>
+					<label for="note" class="text-xs font-black uppercase tracking-[0.2em] text-zinc-950 ml-1">Additional Details (Make/Model, Condition, etc.)</label>
 					<textarea 
 						id="note" 
 						name="note" 
