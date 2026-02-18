@@ -39,7 +39,7 @@
     <div id="sidebar-overlay" class="fixed inset-0 bg-zinc-950/50 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-all duration-300 md:hidden"></div>
     
     <!-- Mobile Sidebar -->
-    <div id="mobile-sidebar" class="fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white z-[70] translate-x-full invisible transition-transform duration-300 ease-in-out md:hidden flex flex-col shadow-2xl overflow-y-auto">
+    <div id="mobile-sidebar" class="fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white z-[70] translate-x-full invisible transition-transform duration-300 ease-in-out md:hidden flex flex-col shadow-2xl overflow-y-auto hidden">
         <div class="flex items-center justify-between p-6 border-b border-zinc-100 flex-shrink-0">
             <span class="font-black uppercase tracking-tighter text-xl">Menu</span>
             <button id="menu-close" class="p-2 text-zinc-950">
@@ -72,9 +72,10 @@
     const overlay = document.getElementById('sidebar-overlay');
 
     function openMenu() {
+        sidebar.classList.remove('hidden');
         sidebar.classList.remove('invisible');
         overlay.classList.remove('pointer-events-none');
-        // Small timeout to allow 'invisible' removal to register before transform
+        // Small timeout to allow 'hidden'/'invisible' removal to register before transform
         requestAnimationFrame(() => {
             sidebar.classList.remove('translate-x-full');
             overlay.classList.add('opacity-100');
@@ -91,6 +92,7 @@
         setTimeout(() => {
             if (sidebar.classList.contains('translate-x-full')) {
                 sidebar.classList.add('invisible');
+                sidebar.classList.add('hidden');
             }
         }, 300);
         document.body.style.overflow = '';
