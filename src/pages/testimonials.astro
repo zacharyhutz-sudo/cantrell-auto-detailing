@@ -17,38 +17,38 @@ import { reviews } from '../data/reviews';
 				</p>
 			</div>
 
-			<div class="space-y-12">
+			<div class="space-y-16">
 				{reviews.map((review, index) => (
 					<div 
-						class={`reveal flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center opacity-0 transition-all duration-1000`}
+						class="reveal opacity-0 transition-all duration-1000 flex justify-center w-full"
 						data-direction={index % 2 === 0 ? 'left' : 'right'}
 					>
-						<div class="w-full md:w-1/2">
-							<div class="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-colors group">
-								<div class="flex text-blue-500 mb-6">
-									{[...Array(review.stars)].map(() => (
-										<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-											<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-										</svg>
-									))}
-								</div>
-								<p class="text-xl md:text-2xl text-zinc-100 leading-relaxed font-medium mb-8">
-									"{review.fullText || review.text}"
-								</p>
-								<div class="flex items-center gap-4">
-									<div class="w-12 h-12 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-500 font-bold">
-										{review.firstName[0]}
+						<div class="w-full max-w-5xl">
+							<div class="bg-zinc-900/50 backdrop-blur-sm p-8 md:p-12 md:py-10 rounded-[2rem] border border-white/5 hover:border-blue-500/30 transition-colors group">
+								<div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+									<div class="flex-1 order-2 md:order-1">
+										<div class="flex text-blue-500 mb-4">
+											{[...Array(review.stars)].map(() => (
+												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+													<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+												</svg>
+											))}
+										</div>
+										<p class="text-lg md:text-xl text-zinc-100 leading-relaxed font-medium">
+											"{review.fullText || review.text}"
+										</p>
 									</div>
-									<div>
-										<p class="font-bold text-lg text-white">{review.firstName} {review.lastInitial}.</p>
-										<p class="text-xs text-blue-500 font-black uppercase tracking-widest">Verified Client</p>
+									<div class="flex items-center gap-4 md:flex-col md:justify-center md:min-w-[140px] order-1 md:order-2 md:border-l md:border-white/5 md:pl-12">
+										<div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-500 font-bold md:text-xl">
+											{review.firstName[0]}
+										</div>
+										<div class="md:text-center">
+											<p class="font-bold text-base md:text-lg text-white leading-tight">{review.firstName} {review.lastInitial}.</p>
+											<p class="text-[10px] text-blue-500 font-black uppercase tracking-widest mt-1">Verified Client</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="hidden md:block md:w-1/2">
-							{/* Decorative element or space filler */}
-							<div class="h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent w-full opacity-20"></div>
 						</div>
 					</div>
 				))}
@@ -57,7 +57,7 @@ import { reviews } from '../data/reviews';
 			<div class="mt-32 relative group">
 				<div class="absolute inset-0 bg-blue-600 blur-[120px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
 				<div class="relative bg-zinc-900 border border-white/5 rounded-[3rem] p-12 md:p-24 text-center overflow-hidden">
-					<h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">Ready for the <span class="text-blue-600 italic">Mastery</span> Treatment?</h2>
+					<h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">Experience the <span class="text-blue-600 italic">Gold Standard</span></h2>
 					<p class="text-zinc-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto italic">Book your appointment today and experience the standard our clients rave about.</p>
 					<div class="flex flex-col sm:flex-row gap-6 justify-center">
 						<a href="/cantrell-auto-detailing/book/" class="px-12 py-5 bg-blue-600 text-white font-black uppercase tracking-widest hover:bg-blue-500 hover:scale-105 transition-all shadow-2xl shadow-blue-600/20">
