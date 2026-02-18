@@ -26,7 +26,7 @@ import { reviews } from '../data/reviews';
 									</svg>
 								))}
 							</div>
-							<p class="text-zinc-700 italic leading-relaxed mb-6">"{review.text}"</p>
+							<p class="text-zinc-700 italic leading-relaxed mb-6">"{review.fullText || review.text}"</p>
 						</div>
 						<div class="border-t border-zinc-100 pt-6 mt-auto">
 							<p class="font-bold text-zinc-900">{review.firstName} {review.lastInitial}.</p>
