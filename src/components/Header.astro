@@ -6,7 +6,20 @@
             <img src="/cantrell-auto-detailing/images/logo.png" alt="Cantrell Auto Detailing Logo" class="h-16 w-auto object-contain" />
         </a>
         <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">
-            <a href="/cantrell-auto-detailing/services/" class="hover:text-blue-600 transition-colors">Services</a>
+            <!-- Services Dropdown -->
+            <div class="relative group h-20 flex items-center">
+                <a href="/cantrell-auto-detailing/services/" class="group-hover:text-blue-600 transition-colors flex items-center gap-1">
+                    Services
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <div class="absolute top-20 left-0 w-48 bg-white border border-zinc-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                    <a href="/cantrell-auto-detailing/services/exterior/" class="block px-4 py-2 hover:bg-zinc-50 hover:text-blue-600 transition-colors">Exterior & Ceramic</a>
+                    <a href="/cantrell-auto-detailing/services/interior/" class="block px-4 py-2 hover:bg-zinc-50 hover:text-blue-600 transition-colors">Interior Detailing</a>
+                </div>
+            </div>
+
             <a href="/cantrell-auto-detailing/testimonials/" class="hover:text-blue-600 transition-colors">Reviews</a>
             <a href="/cantrell-auto-detailing/#about" class="hover:text-blue-600 transition-colors">About</a>
             <a href="/cantrell-auto-detailing/#contact" class="px-5 py-2.5 bg-zinc-950 text-white rounded-full hover:bg-blue-600 transition-all">Book Now</a>

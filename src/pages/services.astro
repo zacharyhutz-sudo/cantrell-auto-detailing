@@ -8,97 +8,49 @@ import Header from '../components/Header.astro';
 	<main>
 
 		<!-- Page Header -->
-		<header class="bg-zinc-950 py-20 border-b border-zinc-900">
+		<header class="bg-zinc-950 py-24 border-b border-zinc-900">
 			<div class="max-w-7xl mx-auto px-6 text-center">
-				<h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Our Services</h1>
+				<h1 class="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight">Professional <span class="text-blue-600">Services</span></h1>
 				<p class="text-zinc-400 text-lg max-w-2xl mx-auto">
-					Over 17 years of professional experience bringing showroom-quality results to every vehicle we touch.
+					Over 20 years of expertise in Taylors, SC. We offer specialized care for every square inch of your vehicle.
 				</p>
 			</div>
 		</header>
 
-		<!-- Interior Detailing -->
+		<!-- Service Grid -->
 		<section class="py-24 bg-white">
 			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-					<div class="relative group">
-						<div class="absolute -inset-4 bg-blue-500/5 scale-95 group-hover:scale-100 transition-transform duration-500"></div>
-						<img src="/cantrell-auto-detailing/images/Resized_20260214_105756.jpeg" alt="Interior Detailing Result" class="relative w-full aspect-[4/3] object-cover shadow-2xl" />
-					</div>
-					<div>
-						<span class="text-blue-600 font-bold tracking-widest uppercase text-xs mb-4 block">Precision Interior</span>
-						<h2 class="text-4xl font-extrabold text-zinc-950 mb-6 uppercase tracking-tight">Top-Notch Interior Detailing</h2>
-						<p class="text-zinc-600 text-lg mb-8 leading-relaxed">
-							Regular cleaning of your car's interior helps slow down depreciation and makes for more comfortable driving. If you want to bring back that "like new" appeal, our highly trained team offers thorough and safe cleaning that ensures complete rejuvenation.
-						</p>
-						<div class="bg-zinc-50 p-8 border-l-4 border-blue-600">
-							<h3 class="font-bold text-zinc-950 mb-4 uppercase tracking-tight">Top-to-Bottom Cleaning Includes:</h3>
-							<ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 text-sm text-zinc-600">
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-blue-600"></span> Leather seat cleaning
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-blue-600"></span> Floor mat cleaning
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-blue-600"></span> Gentle chemical treatment
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-blue-600"></span> Shampooing carpets & trunk
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-blue-600"></span> Console & door panel detail
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-blue-600"></span> Ashtray & visor cleaning
-								</li>
-							</ul>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<!-- Exterior Hub -->
+					<div class="group relative overflow-hidden bg-zinc-950 aspect-[16/10]">
+						<img src="/cantrell-auto-detailing/images/Resized_20260214_110851.jpeg" alt="Exterior Services" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" />
+						<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+						<div class="absolute bottom-0 left-0 p-8">
+							<h2 class="text-3xl font-black text-white uppercase mb-4">Exterior & Ceramic</h2>
+							<p class="text-zinc-300 mb-6 max-w-sm">Paint correction, ceramic coatings, and high-performance protection.</p>
+							<a href="/cantrell-auto-detailing/services/exterior/" class="inline-flex items-center gap-2 text-blue-400 font-bold uppercase tracking-widest text-sm hover:text-blue-300 transition-colors">
+								Learn More
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+								</svg>
+							</a>
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
 
-		<!-- Exterior Detailing -->
-		<section class="py-24 bg-zinc-50">
-			<div class="max-w-7xl mx-auto px-6">
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-					<div class="order-2 lg:order-1">
-						<span class="text-blue-600 font-bold tracking-widest uppercase text-xs mb-4 block">Complete Exterior</span>
-						<h2 class="text-4xl font-extrabold text-zinc-950 mb-6 uppercase tracking-tight">Professional Exterior Detailing</h2>
-						<p class="text-zinc-600 text-lg mb-8 leading-relaxed">
-							Trust the professionals to make your vehicle showroom-ready. In business since 2001, we are the area's trusted choice for exterior detailing. Our years of experience ensure your car will look like it just rolled off the assembly line.
-						</p>
-						<div class="bg-white p-8 shadow-sm border-l-4 border-zinc-950">
-							<h3 class="font-bold text-zinc-950 mb-4 uppercase tracking-tight">Exterior Transformation Services:</h3>
-							<ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 text-sm text-zinc-600">
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Acid rain removal
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Clay bar treatment
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Headlight restoration
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Polymer coating
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Wheel & Rim polishing
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Vehicle buffing & Waxing
-								</li>
-								<li class="flex items-center gap-2">
-									<span class="w-1.5 h-1.5 bg-zinc-950"></span> Full detailing & Degreasing
-								</li>
-							</ul>
+					<!-- Interior Hub -->
+					<div class="group relative overflow-hidden bg-zinc-950 aspect-[16/10]">
+						<img src="/cantrell-auto-detailing/images/Resized_20260214_105756.jpeg" alt="Interior Services" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" />
+						<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+						<div class="absolute bottom-0 left-0 p-8">
+							<h2 class="text-3xl font-black text-white uppercase mb-4">Interior Detailing</h2>
+							<p class="text-zinc-300 mb-6 max-w-sm">Deep cleaning, odor removal, and leather conditioning for a like-new cabin.</p>
+							<a href="/cantrell-auto-detailing/services/interior/" class="inline-flex items-center gap-2 text-blue-400 font-bold uppercase tracking-widest text-sm hover:text-blue-300 transition-colors">
+								Learn More
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+								</svg>
+							</a>
 						</div>
-					</div>
-					<div class="order-1 lg:order-2 relative group">
-						<div class="absolute -inset-4 bg-zinc-950/5 scale-95 group-hover:scale-100 transition-transform duration-500"></div>
-						<img src="/cantrell-auto-detailing/images/Messenger_creation_DA93C059-3BB5-4110-89EF-94C685DA65E8.jpeg" alt="Exterior Detailing Result" class="relative w-full aspect-[4/3] object-cover shadow-2xl" />
 					</div>
 				</div>
 			</div>
