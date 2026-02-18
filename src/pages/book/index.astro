@@ -4,130 +4,139 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const services = [
-  { id: 'exterior', label: 'Exterior Detailing', category: 'Service' },
-  { id: 'interior', label: 'Interior Detailing', category: 'Service' }
+  { id: 'exterior', label: 'Exterior Detailing', category: 'Service', description: 'Paint protection, correction, and ceramic coatings.' },
+  { id: 'interior', label: 'Interior Detailing', category: 'Service', description: 'Deep cleaning, sanitization, and upholstery restoration.' }
 ];
-
-const categories = [...new Set(services.map(s => s.category))];
 ---
 
-<Layout title="Book an Appointment | Cantrell Auto Detailing">
+<Layout title="Book an Appointment | Cantrell's Auto Detailing">
 	<Header />
-	<main class="bg-zinc-50 pt-32 pb-24 min-h-screen">
-		<div class="max-w-4xl mx-auto px-6">
-			<div class="text-center mb-16">
-				<h1 class="text-5xl md:text-6xl font-black uppercase tracking-tighter text-zinc-950 mb-4">Request a Quote</h1>
-				<p class="text-zinc-600 text-lg max-w-2xl mx-auto italic">Ready to transform your vehicle? Fill out the form below and we'll get back to you within 24 hours with a personalized quote.</p>
+	<main class="bg-zinc-50 pt-32 pb-24 min-h-screen relative overflow-hidden">
+		<!-- Subtle Background Accents -->
+		<div class="absolute top-0 right-0 w-1/2 h-full bg-blue-600/[0.02] -skew-x-12 transform origin-top"></div>
+		
+		<div class="max-w-5xl mx-auto px-6 relative z-10">
+			<div class="text-center mb-20">
+				<span class="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Reservation</span>
+				<h1 class="text-5xl md:text-8xl font-black uppercase tracking-tighter text-zinc-950 mb-6">Request a <span class="text-blue-600 italic">Quote.</span></h1>
+				<p class="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto italic font-medium">
+					Elevate your vehicle's condition. Complete the form below and we will provide a personalized estimate within 24 hours.
+				</p>
 			</div>
 
-			<form action="https://submit-form.com/3ExGFOgjJ" method="POST" class="bg-white p-8 md:p-12 shadow-2xl rounded-3xl border border-zinc-100">
+			<form action="https://submit-form.com/3ExGFOgjJ" method="POST" class="bg-white p-8 md:p-16 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] rounded-[3rem] border border-zinc-100">
 				<!-- Formspark Configuration -->
-				<input type="hidden" name="_subject" value="New Quote Request: Cantrell Auto Detailing" />
+				<input type="hidden" name="_subject" value="New Quote Request: Cantrell's Auto Detailing" />
 				<input type="hidden" name="_template" value="table" />
+				<input type="hidden" name="_next" value="https://zacharyhutz-sudo.github.io/cantrell-auto-detailing/book/thanks" />
 				
-				<div class="grid md:grid-cols-2 gap-8 mb-12">
-					<div class="flex flex-col gap-2">
-						<label for="name" class="text-xs font-black uppercase tracking-widest text-zinc-400">Full Name</label>
+				<div class="grid md:grid-cols-2 gap-10 mb-16">
+					<div class="flex flex-col gap-3">
+						<label for="name" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Full Name</label>
 						<input 
 							type="text" 
 							id="name" 
 							name="name" 
 							required 
 							placeholder="John Doe"
-							class="w-full px-5 py-4 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium"
+							class="w-full px-6 py-5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all font-semibold text-zinc-900 placeholder:text-zinc-300"
 						/>
 					</div>
-					<div class="flex flex-col gap-2">
-						<label for="phone" class="text-xs font-black uppercase tracking-widest text-zinc-400">Phone Number</label>
+					<div class="flex flex-col gap-3">
+						<label for="phone" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Phone Number</label>
 						<input 
 							type="tel" 
 							id="phone" 
 							name="phone" 
 							required 
 							placeholder="(864) 000-0000"
-							class="w-full px-5 py-4 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium"
+							class="w-full px-6 py-5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all font-semibold text-zinc-900 placeholder:text-zinc-300"
 						/>
 					</div>
-					<div class="flex flex-col gap-2 md:col-span-2">
-						<label for="email" class="text-xs font-black uppercase tracking-widest text-zinc-400">Email Address</label>
+					<div class="flex flex-col gap-3 md:col-span-2">
+						<label for="email" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Email Address</label>
 						<input 
 							type="email" 
 							id="email" 
 							name="email" 
 							required 
 							placeholder="john@example.com"
-							class="w-full px-5 py-4 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium"
+							class="w-full px-6 py-5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all font-semibold text-zinc-900 placeholder:text-zinc-300"
 						/>
 					</div>
 				</div>
 
-				<div class="mb-12">
-					<label class="text-xs font-black uppercase tracking-widest text-zinc-400 block mb-6">Select Services (Select all that apply)</label>
-					<div class="grid sm:grid-cols-2 gap-4">
+				<div class="mb-16">
+					<label class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 block mb-8 ml-1">Desired Services</label>
+					<div class="grid md:grid-cols-2 gap-6">
 						{services.map((service) => (
-							<label class="group relative flex items-center p-4 bg-zinc-50 border border-zinc-200 rounded-2xl cursor-pointer hover:border-blue-600 hover:bg-blue-50 transition-all">
-								<input 
-									type="checkbox" 
-									name="services[]" 
-									value={service.label}
-									class="w-5 h-5 rounded border-zinc-300 text-blue-600 focus:ring-blue-600 mr-4"
-								/>
-								<div class="flex flex-col">
-									<span class="text-xs font-black uppercase tracking-tighter text-zinc-400 group-hover:text-blue-400">{service.category}</span>
-									<span class="font-bold text-zinc-900 group-hover:text-blue-700">{service.label}</span>
+							<label class="group relative flex flex-col p-8 bg-zinc-50 border border-zinc-200 rounded-[2rem] cursor-pointer hover:border-blue-600 hover:bg-blue-50 transition-all duration-500">
+								<div class="flex items-center justify-between mb-4">
+									<span class="text-[10px] font-black uppercase tracking-widest text-zinc-400 group-hover:text-blue-400 transition-colors">{service.category}</span>
+									<input 
+										type="checkbox" 
+										name="services[]" 
+										value={service.label}
+										class="w-6 h-6 rounded-full border-zinc-300 text-blue-600 focus:ring-blue-600 transition-all"
+									/>
 								</div>
+								<span class="font-black text-2xl text-zinc-900 group-hover:text-blue-700 transition-colors mb-2 uppercase tracking-tighter">{service.label}</span>
+								<p class="text-sm text-zinc-500 group-hover:text-blue-600/70 transition-colors leading-relaxed">{service.description}</p>
 							</label>
 						))}
 					</div>
 				</div>
 
-				<div class="flex flex-col gap-2 mb-12">
-					<label for="note" class="text-xs font-black uppercase tracking-widest text-zinc-400">Additional Notes (Vehicle Make/Model, special requests, etc.)</label>
+				<div class="flex flex-col gap-3 mb-16">
+					<label for="note" class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 ml-1">Additional Details (Make/Model, Condition, etc.)</label>
 					<textarea 
 						id="note" 
 						name="note" 
 						rows="4" 
-						placeholder="I have a black SUV that needs a deep interior clean..."
-						class="w-full px-5 py-4 bg-zinc-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium"
+						placeholder="Please share any specific needs or vehicle information..."
+						class="w-full px-6 py-5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all font-semibold text-zinc-900 placeholder:text-zinc-300"
 					></textarea>
 				</div>
 
 				<button 
 					type="submit" 
-					class="w-full py-6 bg-zinc-950 text-white rounded-2xl text-xl font-black uppercase tracking-[0.2em] hover:bg-blue-600 hover:shadow-2xl hover:shadow-blue-600/30 transition-all transform active:scale-[0.98]"
+					class="w-full py-8 bg-zinc-950 text-white rounded-2xl text-xl font-black uppercase tracking-[0.3em] hover:bg-blue-600 hover:shadow-2xl hover:shadow-blue-600/40 transition-all transform active:scale-[0.99]"
 				>
-					Send Quote Request
+					Send Request
 				</button>
 			</form>
 
-			<div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
-				<div class="flex flex-col items-center">
-					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-4">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-						</svg>
+			<div class="mt-24 grid md:grid-cols-2 gap-12 items-center">
+				<div class="space-y-8">
+					<div class="flex items-start gap-6">
+						<div class="w-14 h-14 shrink-0 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+							</svg>
+						</div>
+						<div>
+							<h3 class="font-black uppercase text-sm tracking-widest text-zinc-950 mb-2">Facility</h3>
+							<p class="text-zinc-500 font-medium leading-relaxed">3016 Wade Hampton Blvd<br/>Taylors, SC 29687</p>
+						</div>
 					</div>
-					<h3 class="font-black uppercase text-sm tracking-widest text-zinc-950">Service Area</h3>
-					<p class="text-zinc-500">Taylors, SC & Surrounding</p>
+					<div class="flex items-start gap-6">
+						<div class="w-14 h-14 shrink-0 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+							</svg>
+						</div>
+						<div>
+							<h3 class="font-black uppercase text-sm tracking-widest text-zinc-950 mb-2">Direct Line</h3>
+							<p class="text-zinc-500 font-bold text-lg">864-414-4888</p>
+						</div>
+					</div>
 				</div>
-				<div class="flex flex-col items-center">
-					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-4">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-						</svg>
-					</div>
-					<h3 class="font-black uppercase text-sm tracking-widest text-zinc-950">Call/Text</h3>
-					<p class="text-zinc-500">864-414-4888</p>
-				</div>
-				<div class="flex flex-col items-center">
-					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-4">
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-					</div>
-					<h3 class="font-black uppercase text-sm tracking-widest text-zinc-950">Shop Address</h3>
-					<p class="text-zinc-500 text-sm">3016 Wade Hampton Blvd<br/>Taylors, SC 29687</p>
+				<div class="bg-zinc-950 p-8 md:p-12 rounded-[2rem] text-white">
+					<h3 class="text-2xl font-black uppercase tracking-tight mb-4 italic text-blue-500">Notice</h3>
+					<p class="text-zinc-400 text-sm leading-relaxed italic">
+						Final quotes are provided upon physical inspection of the vehicle. Prices vary based on size, condition, and specific service requirements.
+					</p>
 				</div>
 			</div>
 		</div>
