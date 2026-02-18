@@ -1,10 +1,12 @@
 ---
 ---
-<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200" id="main-nav">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="/cantrell-auto-detailing/" class="flex items-center">
             <img src="/cantrell-auto-detailing/images/logo.png" alt="Cantrell Auto Detailing Logo" class="h-16 w-auto object-contain" />
         </a>
+        
+        <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">
             <a href="/cantrell-auto-detailing/" class="hover:text-blue-600 transition-colors">Home</a>
             <!-- Services Dropdown -->
@@ -24,5 +26,64 @@
             <a href="/cantrell-auto-detailing/testimonials/" class="hover:text-blue-600 transition-colors">Reviews</a>
             <a href="/cantrell-auto-detailing/#contact" class="px-5 py-2.5 bg-zinc-950 text-white rounded-full hover:bg-blue-600 transition-all">Book Now</a>
         </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menu-toggle" class="md:hidden p-2 text-zinc-900 focus:outline-none" aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-zinc-950/50 backdrop-blur-sm z-[60] opacity-0 invisible transition-all duration-300 md:hidden"></div>
+    
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white z-[70] translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col shadow-2xl">
+        <div class="flex items-center justify-between p-6 border-b border-zinc-100">
+            <span class="font-black uppercase tracking-tighter text-xl">Menu</span>
+            <button id="menu-close" class="p-2 text-zinc-950">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col p-6 gap-6 text-xl font-bold uppercase tracking-tight">
+            <a href="/cantrell-auto-detailing/" class="hover:text-blue-600 transition-colors">Home</a>
+            <div class="flex flex-col gap-4">
+                <span class="text-xs font-black text-zinc-400 tracking-[0.3em]">Services</span>
+                <a href="/cantrell-auto-detailing/services/exterior/" class="pl-4 hover:text-blue-600 transition-colors">Exterior & Ceramic</a>
+                <a href="/cantrell-auto-detailing/services/interior/" class="pl-4 hover:text-blue-600 transition-colors">Interior Detailing</a>
+            </div>
+            <a href="/cantrell-auto-detailing/testimonials/" class="hover:text-blue-600 transition-colors">Reviews</a>
+            <a href="/cantrell-auto-detailing/#contact" class="mt-8 px-8 py-4 bg-blue-600 text-white text-center rounded-xl shadow-xl shadow-blue-600/20">Book Now</a>
+        </div>
+        <div class="mt-auto p-6 border-t border-zinc-100 bg-zinc-50">
+            <p class="text-xs text-zinc-400 font-medium">864-414-4888</p>
+            <p class="text-xs text-zinc-400 font-medium">Taylors, SC</p>
+        </div>
     </div>
 </nav>
+
+<script>
+    const toggle = document.getElementById('menu-toggle');
+    const close = document.getElementById('menu-close');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    function openMenu() {
+        sidebar.classList.remove('translate-x-full');
+        overlay.classList.remove('invisible', 'opacity-0');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        sidebar.classList.add('translate-x-full');
+        overlay.classList.add('invisible', 'opacity-0');
+        document.body.style.overflow = '';
+    }
+
+    toggle?.addEventListener('click', openMenu);
+    close?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+</script>
