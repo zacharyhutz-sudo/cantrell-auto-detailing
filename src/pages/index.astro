@@ -1,26 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import { reviews } from '../data/reviews';
 
 const featuredReviews = reviews.slice(0, 5);
 ---
 
 <Layout title="Cantrell Auto Detailing | Taylors, SC">
+	<Header />
 	<main>
-		<!-- Navigation -->
-		<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200">
-			<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-				<a href="/cantrell-auto-detailing/" class="flex items-center">
-					<img src="/cantrell-auto-detailing/images/logo.png" alt="Cantrell Auto Detailing Logo" class="h-16 w-auto object-contain" />
-				</a>
-				<div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600">
-					<a href="/cantrell-auto-detailing/services/" class="hover:text-blue-600 transition-colors">Services</a>
-					<a href="/cantrell-auto-detailing/testimonials/" class="hover:text-blue-600 transition-colors">Reviews</a>
-					<a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-					<a href="#contact" class="px-5 py-2.5 bg-zinc-950 text-white rounded-full hover:bg-blue-600 transition-all">Book Now</a>
-				</div>
-			</div>
-		</nav>
 
 		<!-- Hero Section -->
 		<section class="relative py-24 md:py-32 overflow-hidden bg-zinc-950">
