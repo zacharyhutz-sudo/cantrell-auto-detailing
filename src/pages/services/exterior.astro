@@ -9,8 +9,11 @@ import Footer from '../../components/Footer.astro';
 	<main>
 		<!-- Page Header -->
 		<header class="bg-zinc-950 py-24 border-b border-zinc-900 relative overflow-hidden">
-			<div class="absolute inset-0 opacity-20">
-				<img src="/cantrell-auto-detailing/images/exterior.jpg" alt="Exterior Detail" class="w-full h-full object-cover" />
+			<div class="absolute inset-0 opacity-40">
+				<img src="/cantrell-auto-detailing/images/exterior.jpg" alt="Exterior Detail" class="w-full h-full object-contain object-center" />
+				{/* Gradient Overlays to blend edges */}
+				<div class="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-zinc-950 to-transparent"></div>
+				<div class="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-zinc-950 to-transparent"></div>
 			</div>
 			<div class="relative max-w-7xl mx-auto px-6 text-center">
 				<span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Superior Shine & Protection</span>
