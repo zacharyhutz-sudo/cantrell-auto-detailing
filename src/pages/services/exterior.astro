@@ -32,7 +32,7 @@ import Footer from '../../components/Footer.astro';
 						<div>
 							<h2 class="text-3xl font-black text-zinc-950 uppercase tracking-tight mb-6">Paint Correction & Protection</h2>
 							<p class="text-zinc-600 text-lg leading-relaxed mb-6">
-								We don't just wash cars; we restore paint. Our multi-stage process removes swirl marks, oxidation, and light scratches to reveal the true depth of your vehicle's color. Whether you need a simple wax or a permanent ceramic solution, we have you covered.
+								We don't just wash cars; we restore paint. Our multi-stage process removes swirl marks, oxidation, and light scratches to reveal the true depth of your vehicle's color. Whether you need a simple wash or a permanent ceramic solution, we have you covered.
 							</p>
 							<p class="text-zinc-600 text-lg leading-relaxed">
 								Environmental factors like UV rays, acid rain, and road salt constantly attack your clear coat. Our professional-grade coatings provide a sacrificial layer that makes your car easier to clean and harder to damage.
@@ -91,42 +91,43 @@ import Footer from '../../components/Footer.astro';
 		</section>
 
 		<!-- Before & After Gallery -->
-		<section class="reveal py-24 bg-zinc-950 opacity-0 transition-all duration-1000 translate-y-8">
+		<section class="reveal-section py-24 bg-zinc-950 overflow-x-hidden">
 			<div class="max-w-7xl mx-auto px-6">
 				<div class="text-center mb-16">
 					<span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">The Proof is in the Process</span>
 					<h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">Before & After Gallery</h2>
 				</div>
 
-				<div class="space-y-16">
-					{[1, 2, 3, 4].map((num) => (
-						<div class={`reveal flex flex-col ${num % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 opacity-0 transition-all duration-1000 ${num % 2 === 0 ? 'translate-x-12' : '-translate-x-12'}`}>
-							<div class="w-full md:w-1/2 group relative overflow-hidden bg-zinc-900 aspect-square shadow-2xl">
-								<div class="absolute inset-0 flex">
-									{/* Before */}
-									<div class="relative w-1/2 h-full overflow-hidden border-r border-zinc-950">
-										<img 
-											src={`/cantrell-auto-detailing/images/gallery/e${num}b.JPEG`} 
-											alt={`Exterior ${num} Before`} 
-											class="w-full h-full object-cover grayscale-[0.5]"
-										/>
-										<div class="absolute top-4 left-4 bg-zinc-950/80 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">Before</div>
-									</div>
-									{/* After */}
-									<div class="relative w-1/2 h-full overflow-hidden">
-										<img 
-											src={`/cantrell-auto-detailing/images/gallery/e${num}a.JPEG`} 
-											alt={`Exterior ${num} After`} 
-											class="w-full h-full object-cover"
-										/>
-										<div class="absolute top-4 right-4 bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">After</div>
-									</div>
+				<div class="space-y-24">
+					{[1, 2, 3, 4].map((num, index) => (
+						<div 
+							class="reveal opacity-0 transition-all duration-1000 flex flex-col items-center gap-8"
+							data-direction={index % 2 === 0 ? 'left' : 'right'}
+						>
+							<div class="flex flex-col md:flex-row gap-4 w-full justify-center">
+								{/* Before */}
+								<div class="relative w-full md:w-1/2 aspect-square overflow-hidden shadow-2xl border border-white/5">
+									<img 
+										src={`/cantrell-auto-detailing/images/gallery/e${num}b.JPEG`} 
+										alt={`Exterior ${num} Before`} 
+										class="w-full h-full object-cover grayscale-[0.3]"
+									/>
+									<div class="absolute top-4 left-4 bg-zinc-950/80 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 border border-white/10">Before</div>
+								</div>
+								{/* After */}
+								<div class="relative w-full md:w-1/2 aspect-square overflow-hidden shadow-2xl border border-white/5">
+									<img 
+										src={`/cantrell-auto-detailing/images/gallery/e${num}a.JPEG`} 
+										alt={`Exterior ${num} After`} 
+										class="w-full h-full object-cover"
+									/>
+									<div class="absolute top-4 right-4 bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">After</div>
 								</div>
 							</div>
 							
-							<div class="w-full md:w-1/2 text-center md:text-left">
-								<h3 class="text-blue-500 font-bold uppercase tracking-widest text-sm mb-2">Project #00{num}</h3>
-								<p class="text-white text-xl font-medium opacity-80 uppercase tracking-tighter">Professional Restoration & Finish</p>
+							<div class="text-center">
+								<h3 class="text-blue-500 font-bold uppercase tracking-widest text-sm mb-2">Transformation #00{num}</h3>
+								<p class="text-zinc-400 text-lg italic max-w-xl mx-auto">Deep gloss restoration and surface protection.</p>
 							</div>
 						</div>
 					))}
@@ -179,7 +180,11 @@ import Footer from '../../components/Footer.astro';
 	});
 
 	// Scroll Reveal
-	const observerOptions = { threshold: 0.1 };
+	const observerOptions = { 
+		threshold: 0.1,
+		rootMargin: '0px 0px -100px 0px'
+	};
+
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
@@ -192,6 +197,12 @@ import Footer from '../../components/Footer.astro';
 </script>
 
 <style>
+	.reveal[data-direction="left"] {
+		transform: translateX(-100px);
+	}
+	.reveal[data-direction="right"] {
+		transform: translateX(100px);
+	}
 	.reveal.active {
 		opacity: 1 !important;
 		transform: translate(0, 0) !important;
