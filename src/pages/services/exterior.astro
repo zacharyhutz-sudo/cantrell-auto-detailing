@@ -99,6 +99,48 @@ import Footer from '../../components/Footer.astro';
 				</a>
 			</div>
 		</section>
+
+		<!-- Before & After Gallery -->
+		<section class="reveal py-24 bg-zinc-950 opacity-0 transition-all duration-1000 translate-y-8">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="text-center mb-16">
+					<span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">The Proof is in the Process</span>
+					<h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">Before & After Gallery</h2>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{[1, 2, 3, 4].map((num) => (
+						<div class="group relative overflow-hidden bg-zinc-900 aspect-video md:aspect-[16/10] shadow-2xl">
+							<div class="absolute inset-0 flex">
+								{/* Before */}
+								<div class="relative w-1/2 h-full overflow-hidden border-r border-zinc-950">
+									<img 
+										src={`/cantrell-auto-detailing/images/gallery/e${num}b.JPEG`} 
+										alt={`Exterior ${num} Before`} 
+										class="w-full h-full object-cover grayscale-[0.5]"
+									/>
+									<div class="absolute top-4 left-4 bg-zinc-950/80 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">Before</div>
+								</div>
+								{/* After */}
+								<div class="relative w-1/2 h-full overflow-hidden">
+									<img 
+										src={`/cantrell-auto-detailing/images/gallery/e${num}a.JPEG`} 
+										alt={`Exterior ${num} After`} 
+										class="w-full h-full object-cover"
+									/>
+									<div class="absolute top-4 right-4 bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">After</div>
+								</div>
+							</div>
+							
+							{/* Overlay Info */}
+							<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+								<p class="text-white font-bold uppercase tracking-widest text-sm">Transformation #{num}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
 	</main>
 
 	<Footer />
@@ -150,6 +192,7 @@ import Footer from '../../components/Footer.astro';
 <style>
 	.reveal.active {
 		opacity: 1 !important;
+		transform: translateY(0) !important;
 	}
 	.typing::after {
 		content: '|';
