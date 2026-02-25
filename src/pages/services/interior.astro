@@ -6,19 +6,22 @@ import Footer from '../../components/Footer.astro';
 
 <Layout title="Interior Detailing | Cantrell Auto Detailing">
 	<Header />
-	<main class="overflow-x-hidden">
+	<main>
 		<!-- Page Header -->
-		<header class="bg-zinc-950 py-24 border-b border-zinc-900 relative overflow-hidden">
-			<div class="absolute inset-0 opacity-20">
-				<img src="/cantrell-auto-detailing/images/Resized_20260214_105756.jpeg" alt="Interior Detail" class="w-full h-full object-cover" />
+		<header class="bg-zinc-950 py-32 md:py-48 border-b border-zinc-900 relative overflow-hidden">
+			<div class="absolute inset-0">
+				<img src="/cantrell-auto-detailing/images/interior.jpg" alt="Interior Detail" class="w-full h-full object-cover object-center opacity-30" />
+				<div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-transparent to-zinc-950"></div>
+				<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950/50"></div>
 			</div>
+			
 			<div class="relative max-w-7xl mx-auto px-6 text-center">
-				<span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Total Cabin Rejuvenation</span>
-				<h1 class="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight min-h-[2.4em] md:min-h-[1.2em] flex flex-col items-center">
+				<span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Total Cabin Rejuvenation</span>
+				<h1 class="text-5xl md:text-8xl font-black text-white mb-8 uppercase tracking-tighter leading-[0.9] flex flex-col items-center min-h-[1.8em] md:min-h-[1.8em]">
 					<span id="typewriter-line-1"></span>
-					<span class="text-blue-600" id="typewriter-line-2"></span>
+					<span class="text-blue-600 italic" id="typewriter-line-2"></span>
 				</h1>
-				<p class="reveal max-w-2xl mx-auto text-zinc-400 text-lg opacity-0 transition-opacity duration-1000">
+				<p class="reveal max-w-2xl mx-auto text-zinc-300 text-lg md:text-xl opacity-0 transition-opacity duration-1000 font-medium">
 					From daily drivers to luxury show cars, we provide deep-cleaning services that restore your vehicle's interior to its original showroom condition.
 				</p>
 			</div>
@@ -80,21 +83,48 @@ import Footer from '../../components/Footer.astro';
 
 					<div class="grid grid-cols-1 gap-6">
 						<img src="/cantrell-auto-detailing/images/Resized_20260214_105756.jpeg" alt="Interior Detail Progress" class="w-full aspect-square object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
-						<div class="bg-blue-600 p-8 text-white">
+						<div class="bg-zinc-950 p-8 text-white">
 							<h3 class="text-2xl font-black uppercase mb-4">Request a Quote</h3>
-							<p class="opacity-90 mb-6">Price varies based on vehicle size and condition. Contact us for a precise quote.</p>
-							<a href="tel:864-414-4888" class="inline-block px-8 py-3 bg-white text-blue-600 font-bold uppercase hover:bg-zinc-100 transition-colors">Book Now</a>
+							<p class="opacity-70 mb-6">Price varies based on vehicle size and condition. Contact us for a precise quote.</p>
+							<a href="tel:864-414-4888" class="inline-block px-8 py-3 bg-blue-600 text-white font-bold uppercase hover:bg-blue-500 transition-colors">Book Now</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
+		<!-- Interior Gallery -->
+		<section class="reveal-section py-24 bg-zinc-950 overflow-x-hidden">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="text-center mb-16">
+					<span class="text-blue-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Craftsmanship in Every Detail</span>
+					<h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight">Interior Gallery</h2>
+				</div>
+
+				<div class="space-y-24">
+					{[1, 2, 3].map((num, index) => (
+						<div 
+							class="reveal opacity-0 transition-all duration-1000 flex flex-col items-center"
+							data-direction={index % 2 === 0 ? 'left' : 'right'}
+						>
+							<div class="w-full max-w-4xl aspect-square overflow-hidden shadow-2xl border border-white/5 bg-zinc-900">
+								<img 
+									src={`/cantrell-auto-detailing/images/gallery/i${num}.jpg`} 
+									alt={`Interior Gallery ${num}`} 
+									class="w-full h-full object-cover"
+								/>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
 		<!-- CTA -->
-		<section class="reveal py-24 bg-zinc-950 opacity-0 transition-opacity duration-1000">
+		<section class="reveal py-24 bg-blue-600 opacity-0 transition-opacity duration-1000">
 			<div class="max-w-4xl mx-auto px-6 text-center">
 				<h2 class="text-3xl md:text-5xl font-black text-white mb-8 uppercase tracking-tighter">Ready to Restore Your Interior?</h2>
-				<a href="tel:864-414-4888" class="inline-block px-10 py-5 bg-blue-600 text-white font-black text-xl hover:bg-blue-500 transition-all shadow-2xl">
+				<a href="tel:864-414-4888" class="inline-block px-10 py-5 bg-zinc-950 text-white font-black text-xl hover:bg-white hover:text-zinc-950 transition-all shadow-2xl">
 					Call 864-414-4888
 				</a>
 			</div>
@@ -135,7 +165,11 @@ import Footer from '../../components/Footer.astro';
 	});
 
 	// Scroll Reveal
-	const observerOptions = { threshold: 0.1 };
+	const observerOptions = { 
+		threshold: 0.1,
+		rootMargin: '0px 0px -100px 0px'
+	};
+
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
@@ -148,8 +182,15 @@ import Footer from '../../components/Footer.astro';
 </script>
 
 <style>
+	.reveal[data-direction="left"] {
+		transform: translateX(-100px);
+	}
+	.reveal[data-direction="right"] {
+		transform: translateX(100px);
+	}
 	.reveal.active {
 		opacity: 1 !important;
+		transform: translate(0, 0) !important;
 	}
 	.typing::after {
 		content: '|';
