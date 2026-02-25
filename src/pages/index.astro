@@ -87,7 +87,7 @@ const featuredReviews = reviews.slice(0, 5);
 						</svg>
 					</div>
 					<h3 class="font-bold text-zinc-950 mb-1">Open Hours</h3>
-					<p class="text-sm text-zinc-600">Mon - Fri: 7am - 5pm<br/>Sat - Sun: Closed</p>
+					<p class="text-sm text-zinc-600">Mon - Fri: 6am - 3pm<br/>Sat - Sun: Closed</p>
 				</div>
 				<div class="flex flex-col items-center text-center">
 					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-4">
@@ -121,9 +121,6 @@ const featuredReviews = reviews.slice(0, 5);
 <script>
 	// Typewriter Animation
 	const isMobile = window.innerWidth < 768;
-	const line1Text = "Precision";
-	const line2Text = "Detailing";
-	const line3Text = "Mastered.";
 	
 	const el1 = document.getElementById('typewriter-line-1');
 	const el2 = document.getElementById('typewriter-line-2');
@@ -139,16 +136,9 @@ const featuredReviews = reviews.slice(0, 5);
 	}
 
 	window.addEventListener('DOMContentLoaded', async () => {
-		if (isMobile) {
-			// Mobile: Precision | Detailing | Mastered (3 lines)
-			await typeEffect(el1, "Precision", 60);
-			await typeEffect(el2, "Detailing", 60);
-			await typeEffect(el3, "Mastered.", 80);
-		} else {
-			// Desktop: Precision Detailing | Mastered (2 lines)
-			await typeEffect(el1, "Precision Detailing", 60);
-			await typeEffect(el3, "Mastered.", 80);
-		}
+		// New Hero Text: "Cantrell's Auto" on line 1, "Detailing" on line 2
+		await typeEffect(el1, "Cantrell's Auto", 60);
+		await typeEffect(el3, "Detailing", 80);
 		
 		// Trigger initial reveals in hero after typing
 		document.querySelectorAll('.reveal').forEach(el => {
