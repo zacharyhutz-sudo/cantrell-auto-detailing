@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://zacharyhutz-sudo.github.io',
-  base: '/cantrell-auto-detailing',
+  site: 'https://cantrellsautodetailingllc.com',
+  base: '/',
   vite: {
     plugins: [tailwindcss()]
   }
