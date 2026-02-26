@@ -35,13 +35,33 @@ const featuredReviews = reviews.slice(0, 5);
 			</div>
 		</section>
 
-		<!-- Testimonial Scroller -->
-		<section class="reveal bg-blue-600 py-24 md:py-32 overflow-hidden border-y border-blue-500/30 opacity-0 transition-all duration-1000 translate-y-0 mt-0 relative z-10 max-w-full">
-			<div class="flex whitespace-nowrap animate-scroll hover:[animation-play-state:paused] w-max">
-				{[...Array(2)].map(() => (
-					<div class="flex gap-32 md:gap-48 items-center px-12 md:px-24">
-						{featuredReviews.map((review) => (
-							<div class="inline-flex flex-col items-center gap-8 text-white w-[85vw] md:w-[600px] text-center whitespace-normal flex-shrink-0">
+		<!-- Testimonials Section -->
+		<section class="reveal bg-blue-600 py-24 md:py-32 border-y border-blue-500/30 opacity-0 transition-all duration-1000 translate-y-0 mt-0 relative z-10">
+			<div class="max-w-4xl mx-auto px-6 relative">
+				<!-- Navigation Buttons -->
+				<div class="absolute top-1/2 -translate-y-1/2 left-0 md:-left-12 z-20">
+					<button id="prev-review" class="p-3 text-white/50 hover:text-white transition-colors" aria-label="Previous review">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+						</svg>
+					</button>
+				</div>
+				<div class="absolute top-1/2 -translate-y-1/2 right-0 md:-right-12 z-20">
+					<button id="next-review" class="p-3 text-white/50 hover:text-white transition-colors" aria-label="Next review">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+						</svg>
+					</button>
+				</div>
+
+				<!-- Reviews Container -->
+				<div class="relative overflow-hidden min-h-[300px] flex items-center">
+					{featuredReviews.map((review, index) => (
+						<div 
+							class={`review-slide absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-500 transform ${index === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12 pointer-events-none'}`}
+							data-index={index}
+						>
+							<div class="flex flex-col items-center gap-6 text-white w-full">
 								<div class="flex flex-col items-center gap-4">
 									<div class="flex text-yellow-300">
 										{[...Array(review.stars)].map(() => (
@@ -55,13 +75,23 @@ const featuredReviews = reviews.slice(0, 5);
 									</span>
 								</div>
 								
-								<p class="text-lg md:text-2xl font-bold leading-relaxed italic">
+								<p class="text-xl md:text-3xl font-bold leading-relaxed italic max-w-2xl px-4">
 									"{review.text}"
 								</p>
 							</div>
-						))}
-					</div>
-				))}
+						</div>
+					))}
+				</div>
+
+				<!-- Indicators -->
+				<div class="flex justify-center gap-2 mt-8">
+					{featuredReviews.map((_, index) => (
+						<div 
+							class={`review-dot w-2 h-2 rounded-full transition-all duration-300 ${index === 0 ? 'bg-white w-6' : 'bg-white/30'}`}
+							data-index={index}
+						></div>
+					))}
+				</div>
 			</div>
 		</section>
 
@@ -123,6 +153,44 @@ const featuredReviews = reviews.slice(0, 5);
 		if (heroLogo) {
 			heroLogo.classList.add('active-logo');
 		}
+
+		// Testimonial Slider
+		let currentReview = 0;
+		const slides = document.querySelectorAll('.review-slide');
+		const dots = document.querySelectorAll('.review-dot');
+		const totalReviews = slides.length;
+
+		function showReview(index) {
+			slides.forEach((slide, i) => {
+				slide.classList.remove('opacity-100', 'translate-x-0');
+				slide.classList.add('opacity-0', 'pointer-events-none');
+				
+				if (i < index) slide.classList.add('-translate-x-12');
+				else if (i > index) slide.classList.add('translate-x-12');
+			});
+
+			dots.forEach((dot, i) => {
+				dot.classList.remove('bg-white', 'w-6');
+				dot.classList.add('bg-white/30');
+				if (i === index) {
+					dot.classList.add('bg-white', 'w-6');
+					dot.classList.remove('bg-white/30');
+				}
+			});
+
+			slides[index].classList.remove('opacity-0', 'translate-x-12', '-translate-x-12', 'pointer-events-none');
+			slides[index].classList.add('opacity-100', 'translate-x-0');
+		}
+
+		document.getElementById('prev-review')?.addEventListener('click', () => {
+			currentReview = (currentReview - 1 + totalReviews) % totalReviews;
+			showReview(currentReview);
+		});
+
+		document.getElementById('next-review')?.addEventListener('click', () => {
+			currentReview = (currentReview + 1) % totalReviews;
+			showReview(currentReview);
+		});
 
 		// Reveal remaining elements
 		document.querySelectorAll('.reveal').forEach(el => {
