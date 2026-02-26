@@ -18,11 +18,9 @@ const featuredReviews = reviews.slice(0, 5);
 				<div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/20 to-transparent via-[30%] md:via-[50%] to-[50%] md:to-[70%]"></div>
 			</div>
 			<div class="relative max-w-7xl mx-auto px-6 text-left w-full">
-				<h1 id="hero-title" class="text-4xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.0] max-w-none uppercase flex flex-col items-start">
-					<span class="md:whitespace-nowrap min-h-[1.1em] block" id="typewriter-line-1"></span>
-					<span class="md:hidden min-h-[1.1em] block" id="typewriter-line-2"></span>
-					<span class="text-blue-500 italic min-h-[1.1em] block" id="typewriter-line-3"></span>
-				</h1>
+				<div class="hero-logo-container mb-8 opacity-0 transition-all duration-1000 -translate-x-12">
+					<img src="/cantrell-auto-detailing/images/logo-hero.png" alt="Cantrell's Auto Detailing" class="h-32 md:h-56 w-auto object-contain -ml-2 md:-ml-4" />
+				</div>
 				<p class="reveal max-w-xl text-zinc-300 text-lg md:text-xl mb-12 leading-relaxed opacity-0 transition-all duration-1000 translate-y-4">
 					Professional auto detailing services specializing in paint correction, ceramic coatings, and interior restoration. We bring the showroom shine back to your vehicle.
 				</p>
@@ -119,28 +117,14 @@ const featuredReviews = reviews.slice(0, 5);
 </Layout>
 
 <script>
-	// Typewriter Animation
-	const isMobile = window.innerWidth < 768;
-	
-	const el1 = document.getElementById('typewriter-line-1');
-	const el2 = document.getElementById('typewriter-line-2');
-	const el3 = document.getElementById('typewriter-line-3');
-
-	async function typeEffect(element, text, delay = 50) {
-		element.classList.add('typing');
-		for (let i = 0; i <= text.length; i++) {
-			element.textContent = text.slice(0, i);
-			await new Promise(resolve => setTimeout(resolve, delay));
+	window.addEventListener('DOMContentLoaded', () => {
+		// Trigger hero logo animation immediately
+		const heroLogo = document.querySelector('.hero-logo-container');
+		if (heroLogo) {
+			heroLogo.classList.add('active-logo');
 		}
-		element.classList.remove('typing');
-	}
 
-	window.addEventListener('DOMContentLoaded', async () => {
-		// New Hero Text: "Cantrell's Auto" on line 1, "Detailing" on line 2
-		await typeEffect(el1, "Cantrell's Auto", 60);
-		await typeEffect(el3, "Detailing", 80);
-		
-		// Trigger initial reveals in hero after typing
+		// Reveal remaining elements
 		document.querySelectorAll('.reveal').forEach(el => {
 			const rect = el.getBoundingClientRect();
 			if (rect.top < window.innerHeight) {
@@ -183,20 +167,12 @@ const featuredReviews = reviews.slice(0, 5);
 		transform: translateY(0) !important;
 	}
 
+	.hero-logo-container.active-logo {
+		opacity: 1 !important;
+		transform: translateX(0) !important;
+	}
+
 	.reveal:not(.active) {
 		pointer-events: none;
-	}
-
-	/* Typewriter cursor effect */
-	.typing::after {
-		content: '|';
-		animation: blink 1s step-end infinite;
-		margin-left: 4px;
-		color: #3b82f6;
-	}
-
-	@keyframes blink {
-		from, to { opacity: 1; }
-		50% { opacity: 0; }
 	}
 </style>
